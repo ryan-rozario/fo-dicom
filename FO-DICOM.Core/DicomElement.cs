@@ -1390,9 +1390,9 @@ namespace FellowOakDicom
             DicomTag tag,
             string Last,
             string First,
-            string Middle = null,
-            string Prefix = null,
-            string Suffix = null)
+            string Middle = "",
+            string Prefix = "",
+            string Suffix = "")
             : base(tag, ConcatName(Last, First, Middle, Prefix, Suffix))
         {
         }
@@ -1453,9 +1453,9 @@ namespace FellowOakDicom
         private static string ConcatName(
             string Last,
             string First,
-            string Middle = null,
-            string Prefix = null,
-            string Suffix = null)
+            string Middle = "",
+            string Prefix = "",
+            string Suffix = "")
         {
             if (!string.IsNullOrEmpty(Suffix)) return Last + "^" + First + "^" + Middle + "^" + Prefix + "^" + Suffix;
             if (!string.IsNullOrEmpty(Prefix)) return Last + "^" + First + "^" + Middle + "^" + Prefix;
