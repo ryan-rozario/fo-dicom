@@ -243,6 +243,9 @@ namespace FellowOakDicom
             }
 
             dataset.Remove(item => toRemove.Contains(item));
+            
+            dataset.AddOrUpdate<string>(DicomTag.PatientIdentityRemoved, "YES");
+            dataset.AddOrUpdate<string>(DicomTag.DeidentificationMethod, "Per DICOM PS 3.15 AnnexE.");
         }
 
         /// <summary>Anonymizes the dataset of an existing Dicom file</summary>
